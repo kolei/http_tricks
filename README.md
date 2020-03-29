@@ -34,7 +34,7 @@ var that = $(node).find('td').eq(3);
 that.attr('contenteditable', 'true');
 that.attr('old-value', item.parser_yandex);
 that.focusout(()=>{
-  var old_value = $(that).attr('old-value');
+  var old_value = $(that).attr('old-value') || '';
   var new_value = $(that).text();
   if(old_value!=new_value){
     console.log('wow');

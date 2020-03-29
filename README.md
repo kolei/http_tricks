@@ -9,7 +9,7 @@
 <summary>добавление класса в созданную строку</summary>
 
 ```js
-// метод node() возвращает добавленную ноду (проверить как будет работать, если строка не видна)
+// метод node() возвращает добавленную ноду
 let node = table.row.add(
   [item.id, item.name, `${item.firm_name} (${item.firmId})`, item.parser_yandex]
 ).draw().node();
@@ -19,6 +19,27 @@ $(node).find('td').eq(3).attr('contenteditable', 'true');
 
 // для строки (tr) задается класс
 $(node).addClass('non-active');
+```
+
+</details>
+
+<details>
+<summary>редактируемая ячейка с отслеживанием изменений при выходе</summary>
+
+```js
+//let node = table.row.add([...]).draw().node(); - см предыдущую фичу
+
+var that = $(node).find('td').eq(3);
+
+that.attr('contenteditable', 'true');
+that.attr('old-value', item.parser_yandex);
+that.focusout(()=>{
+  var old_value = $(that).attr('old-value');
+  var new_value = $(that).text();
+  if(old_value!=new_value){
+    console.log('wow');
+  }
+});
 ```
 
 </details>

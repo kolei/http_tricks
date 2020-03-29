@@ -1,12 +1,38 @@
 # Фичи верстки
 
-<details>
+* [Динамический бутстрап-алерт](#Динамический-бутстрап-алерт)
+* [DataTable](#DataTable)
 
-<summary>Динамический бутстрап-алерт</summary>
+## DataTable
+
+<details>
+<summary>добавление класса в созданную строку</summary>
+
+```js
+// метод node() возвращает добавленную ноду (проверить как будет работать, если строка не видна)
+let node = table.row.add(
+  [item.id, item.name, `${item.firm_name} (${item.firmId})`, item.parser_yandex]
+).draw().node();
+
+// 4-й ячейке строки добавляется атрибут
+$(node).find('td').eq(3).attr('contenteditable', 'true');
+
+// для строки (tr) задается класс
+$(node).addClass('non-active');
+```
+
+</details>
+
+## Динамический бутстрап алерт
+
+<details>
+<summary>
 
 * создается в js-коде
 * автоматически уничтожается через 5 сек
 * расположен вверху экрана
+
+</summary>
 
 ```css
 #alert_placeholder {

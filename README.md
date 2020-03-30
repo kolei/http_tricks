@@ -2,6 +2,20 @@
 
 * [Динамический бутстрап-алерт](#Динамический-бутстрап-алерт)
 * [DataTable](#DataTable)
+* [Выпадающий список](#Выпадающий-список)
+
+## Выпадающий список
+
+<details>
+<summary>Динамическое добавление элементов</summary>
+
+```js
+data.firms.forEach(firm=>{
+  $('#rest-select-firm').append( new Option(firm.name, firm.id) );
+});
+```
+
+</details>
 
 ## DataTable
 

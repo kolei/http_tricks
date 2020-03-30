@@ -17,6 +17,25 @@ data.firms.forEach(firm=>{
 
 </details>
 
+<details>
+<summary>Событие при выборе элемента списка</summary>
+
+```js
+$(document).on("change","#rest-select-firm", function(){
+  var filter = $('#rest-select-firm').val();
+  if(filter){
+    // очищаем зависимый список
+    $('#rest-select-pg').empty();
+      pgArray.forEach(pg=>{
+				if(pg.firm_id==filter)
+					$('#rest-select-pg').append( new Option(pg.name, pg.id) );
+			});
+	}
+});
+```
+
+</details>
+
 ## DataTable
 
 <details>
